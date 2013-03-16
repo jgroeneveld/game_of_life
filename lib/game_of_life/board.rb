@@ -57,15 +57,15 @@ module GameOfLife
     end
 
     def to_s
-      res = ""
+      res = "#{'- '*(@width+2)}\n"
       (0...@height).each do |y|
         line = ""
         (0...@width).each do |x|
-          line << (cell_at(x,y) == :alive ? "O" : " ")
+          line << (cell_at(x,y) == :alive ? "O " : "  ")
         end
-        res << "#{line}\n"
+        res << "|#{line} |\n"
       end
-      res
+      "#{res}\n#{'- '*(@width+2) }"
     end
 
     private
