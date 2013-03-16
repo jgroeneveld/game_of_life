@@ -34,16 +34,16 @@ module GameOfLife
     end
 
     it "should be possible to count the cell neighbours" do
-      subject.alive_neighbour_count(5,5).should == 0
+      subject.alive_neighbours_count(5,5).should == 0
 
       subject.revive_cell(6,5)
-      subject.alive_neighbour_count(5,5).should == 1
+      subject.alive_neighbours_count(5,5).should == 1
 
       subject.revive_cell(5,6)
-      subject.alive_neighbour_count(5,5).should == 2
+      subject.alive_neighbours_count(5,5).should == 2
 
       subject.revive_cell(2,6)
-      subject.alive_neighbour_count(5,5).should == 2
+      subject.alive_neighbours_count(5,5).should == 2
     end
 
     it "should be possible to iterate all cells" do

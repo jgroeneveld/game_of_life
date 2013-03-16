@@ -10,6 +10,10 @@ module GameOfLife
       @cells = {}
     end
 
+    def clone
+      Marshal.load(Marshal.dump(self))
+    end
+
     def cell_at(x,y)
       ensure_boundaries(x,y)
 
@@ -26,7 +30,7 @@ module GameOfLife
       @cells[[x,y]] = :dead
     end
 
-    def alive_neighbour_count(x,y)
+    def alive_neighbours_count(x,y)
       max_left = [0,x-1].max
       max_right = [@width-1,x+1].min
       max_top = [0,y-1].max
@@ -50,6 +54,18 @@ module GameOfLife
           yield(x,y)
         end
       end
+    end
+
+    def to_s
+      res = ""
+      (0...@height).each do |y|
+        line = ""
+        (0...@width).each do |x|
+          line << (cell_at(x,y) == :alive ? "O" : " ")
+        end
+        res << "#{line}\n"
+      end
+      res
     end
 
     private
