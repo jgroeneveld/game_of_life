@@ -11,5 +11,13 @@ module GameOfLife
       subject.tick!
       subject.board.cell_at(5,5).should == :dead
     end
+
+    it "should clean the screen, output the board and tick when running" do
+      subject.should_receive(:print).with("\e[2J\e[f")
+      subject.should_receive(:puts).with(subject.board.to_s).once
+      subject.should_receive(:tick!)
+
+      subject.run!(false)
+    end
   end
 end

@@ -17,13 +17,21 @@ module GameOfLife
       @board = next_board
     end
 
-    def run!()
-      while(true)
-        puts "\n"*50
-        puts @board
+    def run!(forever=true)
+      begin
+        clear_screen
+        put_board
         tick!
         sleep(0.25)
-      end
+      end while forever
+    end
+
+    def clear_screen
+      print "\e[2J\e[f"
+    end
+
+    def put_board
+      puts @board.to_s
     end
 
   end
