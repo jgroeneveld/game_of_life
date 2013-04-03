@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 require 'game_of_life/runner'
 
 module GameOfLife

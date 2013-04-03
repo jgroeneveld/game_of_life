@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 require 'game_of_life/board'
 require 'game_of_life/pattern_generator'
 
