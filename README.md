@@ -1,3 +1,3 @@
 # GameOfLife
 
-ein versuch das game of life tdd zu entwickeln
+Simple TDD Game of Life Implementation in Ruby
